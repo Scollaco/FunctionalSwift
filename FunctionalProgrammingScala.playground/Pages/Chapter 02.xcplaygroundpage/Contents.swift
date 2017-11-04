@@ -15,15 +15,15 @@ struct MyModule {
     }
     
     // Passing a function as argument
-    func formateResult(name: String, n: Int, f: (Int) -> Int) -> String {
+    func formatResult(name: String, n: Int, f: (Int) -> Int) -> String {
         return "The \(name) of \(n) is \(f(n))"
     }
     
 }
 
 let module = MyModule()
-module.formateResult(name: "Abs", n: -5, f: module.abs)
-module.formateResult(name: "Factorial", n: 5, f: module.factorial)
+module.formatResult(name: "Abs", n: -5, f: module.abs)
+module.formatResult(name: "Factorial", n: 5, f: module.factorial)
 
 
 ///***** Annonymous functions *****///
@@ -39,14 +39,14 @@ let incr = { number in
 }
 //module.formateResult(name: "increment", n: 7, f: incr)
 
-module.formateResult(name: "increment", n: 7, f: { n in n + 1 })
+module.formatResult(name: "increment", n: 7, f: { n in n + 1 })
 
 
 
 
 ///***** Polymorphic functions: abstracting over types *****///
 /*
-Different than monomorphic functions that operates only on type of data - like abs and factorial both:(Int) -> Int and formatResults that's also fixed to operate on functions that take arguments of type Int - polymorphic functions works with any type of data. The example below is a polymorphoc function.
+Different than monomorphic functions that operates only on type of data - like abs and factorial both:(Int) -> Int and formatResults that's also fixed to operate on functions that take arguments of type Int - polymorphic functions work with any type of data. The example below is a polymorphoc function.
  */
 
 func isSorted<T>(array: [T], compare: (T, T) -> Bool) -> Bool where T: Comparable {
